@@ -3,7 +3,7 @@ const getHomePage = (req, res) => {
 };
 
 const getAbc = (req, res) => {
-  res.send("Hello World abc");
+  res.send("Hello World djflsdjgklajg");
 };
 
 const getImg = (req, res) => {

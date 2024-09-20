@@ -6,6 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holyBeastt/ttcs_v1.git"
+  },
   "author": "",
   "license": "ISC",
   "description": "",
