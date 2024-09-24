@@ -8,6 +8,5 @@ const {
 
 router.get("/", getHomePage);
 router.get("/abc", getAbc);
-router.get("/img", getImg);
 
 module.exports = router;
