@@ -20,6 +20,10 @@ const hostname = process.env.HOST_NAME;
 // config engine template
 configViewEngine(app);
 
+// config res.body
+app.use(express.json()); // for json
+app.use(express.urlencoded({ extended: true })); // for form data
+
 // Khai bao route
 app.use("/", webRoutes);
 
@@ -27,13 +31,18 @@ app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-// simple query
-connection.query("SELECT * FROM `bomon`", function (err, results, fields) {
-  console.log("result = ", results); // results contains rows returned by server
-  // console.log(fields); // fields contains extra meta data about results, if available
-  // Chuyển đổi kết quả thành JSON
-  const jsonData = JSON.stringify(results);
+// Phục vụ các file tĩnh từ thư mục node_modules
+// app.use("/node_modules", express.static(path.join(__dirname, "/node_modules")));
+app.use(express.static(path.join(__dirname, "../node_modules")));
+app.use(express.static(path.join(__dirname, "public/images")));
 
-  // In ra dữ liệu dưới dạng JSON
-  console.log("Data in JSON format: ", jsonData);
-});
+// simple query
+// connection.query("SELECT * FROM `bomon`", function (err, results, fields) {
+//   // console.log("result = ", results); // results contains rows returned by server
+//   // console.log(fields); // fields contains extra meta data about results, if available
+//   // Chuyển đổi kết quả thành JSON
+//   // const jsonData = JSON.stringify(results);
+
+//   // // In ra dữ liệu dưới dạng JSON
+//   // console.log("Data in JSON format: ", jsonData);
+// });
